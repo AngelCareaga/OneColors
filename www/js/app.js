@@ -23,7 +23,7 @@ angular.module('starter', ['ionic', 'ngCordova'])
             StatusBar.styleDefault();
         }
         if (StatusBar.isVisible) {
-            console.log("La barra funciona");
+            //console.log("La barra funciona");
         }
 
     });
@@ -99,27 +99,27 @@ angular.module('starter', ['ionic', 'ngCordova'])
                       + "0123456789ABCDEF".charAt(n%16);
                 }
 
-                console.log("Obteniendo...");
+                //console.log("Obteniendo...");
                 var c = colorThief.getColor(a);
-                var p = colorThief.getPalette(a, 8);
+                var p = colorThief.getPalette(a);
                 var pTitulo = colorThief.getPalette(a, 2);
                 $scope.palette = p;
                 $scope.paletteTitulo = pTitulo;
                 //var nuevoColor = pTitulo[0];
                 var nuevoColor = rgbToHex(pTitulo[0][0],pTitulo[0][1],pTitulo[0][2]);
-                console.log("Nuevo color: " + pTitulo + ' Otro: ' + nuevoColor);
+                //console.log("Nuevo color: " + pTitulo + ' Otro: ' + nuevoColor);
                 $scope.estiloTitulo={
                     color:"white",
                     backgroundColor:'#'+nuevoColor+''
                   }
 
             } else {
-                console.log("Toma una imagen primero.");
+                //console.log("Toma una imagen primero.");
                 alert("Toma una imagen primero.");
             }
         }catch(err)
         {
-          console.log("Error en: " + err);
+          //console.log("Error en: " + err);
         }
     }
 
@@ -154,4 +154,3 @@ angular.module('starter', ['ionic', 'ngCordova'])
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/search');
 })
-
