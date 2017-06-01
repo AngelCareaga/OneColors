@@ -1,27 +1,32 @@
-<ion-view view-title="OneColors">
+<ion-view view-title="ONECOLORS">
 
-    <body ng-app="starter" style="background-color: #FAFAFA;" >
+    <body ng-app="starter" style="background-color: #FAFAFA;">
         <ion-pane ng-controller="mainController">
-            <ion-content>
+            <ion-content style="background-color: #FAFAFA;" class="contenidoPrincipal">
                 <div style="background-color: #FAFAFA;">
+                    <div ng-style="estiloTitulo" style="color: white; text-align: center; background-color: #2980b9;" class="estiloTitulo">
+                        <br>
+                        <div class="tituloPrincipal">
+                            <h4 class="padding" style="color: white;">Obtén colores predominantes a partir de una imagen.</h4>
+                        </div>
+                        <div align="center" id="divImagen">
+                            <p class="padding">
+                                <img id="imgDemo" src="img/prueba2.jpg" align="center">
+                            </p>
+                        </div>
+                    </div>
                     <div class="fondoImagen">
-                        <h4 class="padding" style="color: white; text-align: center;">Obtén colores predominantes a partir de una imagen.</h4>
                         <div class="colors">
                             <div class="color" style="background-color:rgb({{palette[0][0]}},{{palette[0][1]}},{{palette[0][2]}})"></div>
                             <div class="palette">
                                 <div ng-if="$index > 0" class="color" ng-repeat="c in palette" style="background-color:rgb({{c[0]}},{{c[1]}},{{c[2]}});">
                                     <div id="etiquetaColor">
-                                    <br>
-                                    <span> </span> RGB ({{c[0]}},{{c[1]}},{{c[2]}})
+                                        <br>
+                                        <span> </span> RGB ({{c[0]}},{{c[1]}},{{c[2]}})
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div align="center" id="divImagen">
-                        <p class="padding">
-                            <img id="imgDemo" src="img/avatar1.png" align="center">
-                        </p>
                     </div>
                 </div>
             </ion-content>
@@ -34,9 +39,7 @@
                     <ion-nav-view name="tab-chats"></ion-nav-view>
                 </ion-tab>
                 <!-- Dashboard Tab -->
-                <ion-tab title="Acerca de" icon-off="ion-ios-help-outline" icon-on="ion-ios-help-outline" href="#/app/browse">
-                    <ion-nav-view name="tab-chats"></ion-nav-view>
-                </ion-tab>
+               
             </ion-tabs>
         </ion-pane>
     </body>

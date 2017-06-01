@@ -18,8 +18,14 @@ angular.module('starter', ['ionic', 'ngCordova'])
             cordova.plugins.Keyboard.disableScroll(true);
         }
         if (window.StatusBar) {
+            StatusBar.show();
+            StatusBar.backgroundColorByHexString("#2980b9");
             StatusBar.styleDefault();
         }
+        if (StatusBar.isVisible) {
+            console.log("La barra funciona");
+        }
+
     });
 })
 
@@ -30,6 +36,7 @@ angular.module('starter', ['ionic', 'ngCordova'])
     var colorThief = new ColorThief();
 
     $scope.palette = [];
+    $scope.paletteTitulo = [];
 
     document.addEventListener("deviceready", function() {
 
@@ -49,7 +56,7 @@ angular.module('starter', ['ionic', 'ngCordova'])
             maximumImagesCount: 10,
             width: 800,
             height: 800,
-            quality: 80
+            quality: 100
         };
 
         $scope.getCamera = function() {
@@ -82,11 +89,29 @@ angular.module('starter', ['ionic', 'ngCordova'])
         var a = document.getElementById("imgDemo");
         try {
             if (a.src) {
+
+                function rgbToHex(R,G,B) {return toHex(R)+toHex(G)+toHex(B)}
+                function toHex(n) {
+                 n = parseInt(n,10);
+                 if (isNaN(n)) return "00";
+                 n = Math.max(0,Math.min(n,255));
+                 return "0123456789ABCDEF".charAt((n-n%16)/16)
+                      + "0123456789ABCDEF".charAt(n%16);
+                }
+
                 console.log("Obteniendo...");
                 var c = colorThief.getColor(a);
-                var p = colorThief.getPalette(a, 6);
+                var p = colorThief.getPalette(a, 8);
+                var pTitulo = colorThief.getPalette(a, 2);
                 $scope.palette = p;
-                console.log("Paleta: " + p);
+                $scope.paletteTitulo = pTitulo;
+                //var nuevoColor = pTitulo[0];
+                var nuevoColor = rgbToHex(pTitulo[0][0],pTitulo[0][1],pTitulo[0][2]);
+                console.log("Nuevo color: " + pTitulo + ' Otro: ' + nuevoColor);
+                $scope.estiloTitulo={
+                    color:"white",
+                    backgroundColor:'#'+nuevoColor+''
+                  }
 
             } else {
                 console.log("Toma una imagen primero.");
@@ -129,3 +154,4 @@ angular.module('starter', ['ionic', 'ngCordova'])
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/search');
 })
+

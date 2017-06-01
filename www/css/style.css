@@ -1,3 +1,11 @@
+body {
+    font-family: 'Roboto', sans-serif;	
+}
+
+.contenidoPrincipal
+{
+	height: 86%;
+}
 
 .about{
 	background-color: #FAFAFA;
@@ -55,14 +63,15 @@
 
 /* header */
 .bar.bar-stable {
-    background-color: #00897B;
+    background-color: #2980b9;
     color: #FFFFFF;
-    border-color: #00897B;
+    border-color: #2980b9;
 }
 .bar.bar-stable .title {
-    background-color: #00897B;
+    background-color: #2980b9;
     color: #FFFFFF;
-    border-color: #00897B;
+    border-color: #2980b9;
+    font-weight: bold;
 }
 
 #ion-navicon
@@ -79,10 +88,18 @@
 	text-align: center;
 }
 
-.fondoImagen, .pane
-{
-	background-color: #00897B;
-    color: #FFFFFF;
+.fondoImagen {
+	border-color: #000;
+    background-color: #2980b9;
+    color: #ffffff;
+    top: -20%;
+    margin-top: -10px;
+    margin-bottom: 0%;
+}
+
+.padding {
+    padding: 10px;
+    padding-bottom: 25px;
 }
 
 #fondoBotones
@@ -102,12 +119,13 @@
 	text-align: center;
 	align-content: center;
 	align-items: center;
+	margin-top: -6%;
 }
 
 #imgDemo
 {
-	width: 100%;/* en porcentaje (el highlight del foro lo trasforma) */
-    height: 100%;
+	width: 50%;/* en porcentaje (el highlight del foro lo trasforma) */
+    height: 50%;
     top:0;
     left:0;
     position:fixed;
@@ -130,4 +148,9 @@
     position:fixed;
     z-index: -1;
 	
+}
+
+.estiloTitulo
+{
+	margin-top: -1%;
 }
