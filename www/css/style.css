@@ -3,8 +3,19 @@
 	background-color: #FAFAFA;
 }
 
+.about .iconoOnecolors
+{
+	width: 25%;/* en porcentaje (el highlight del foro lo trasforma) */
+    height: 25%;
+    position:fixed;
+    z-index: -1;
+	text-align: center;
+
+}
+
 .about .titulo
 {
+	margin-top: -1%;
     color: #212121;
 	text-align: center;
 }
@@ -78,6 +89,45 @@
 {
 	background-color: #FAFAFA;
 	width: 100%;
-	height: 800px;
+	height: 100%;
+}
 
+.tabs-icon-top .tabs-color-active-positive
+{
+	background-color: red;
+}
+
+#divImagen
+{
+	text-align: center;
+	align-content: center;
+	align-items: center;
+}
+
+#imgDemo
+{
+	width: 100%;/* en porcentaje (el highlight del foro lo trasforma) */
+    height: 100%;
+    top:0;
+    left:0;
+    position:fixed;
+    z-index: -1;
+	text-align: center;
+}
+
+.colors
+{
+	width: 150%;
+	height: 150%;
+}
+
+#etiquetaColor
+{
+	width: 100%;
+    height: 200%;
+    top:0;
+    left:0;
+    position:fixed;
+    z-index: -1;
+	
 }

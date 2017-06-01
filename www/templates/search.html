@@ -1,43 +1,43 @@
 <ion-view view-title="OneColors">
-      <body ng-app="starter">
-    <ion-pane ng-controller="mainController">
-      <ion-content>
 
-      	<div class="fondoImagen">
-	        <h4 class="padding" style="color: white; text-align: center;">Obtén colores predominantes a partir de una imagen.</h4>
-
-	        <div class="colors">
-	          <div class="color" style="background-color:rgb({{palette[0][0]}},{{palette[0][1]}},{{palette[0][2]}},{{palette[0][3]}})"></div>
-	          <div class="palette">
-	            <div ng-if="$index > 0" class="color" ng-repeat="c in palette" style="background-color:rgb({{c[0]}},{{c[1]}},{{c[2]}},{{c[3]}})">
-	            </div>  
-	          </div>
-	        </div>
-
-        </div>
-
-        <div id="fondoBotones">
-
-          <div class="item tabs tabs-secondary tabs-icon-left" style="border-color: #FAFAFA; background-color: #FAFAFA;">
-			
-			<p class="padding">
-            	<img id="imgDemo">
-          	</p>
-
-            <a class="tab-item" ng-click="getCamera()">
-              <i class="icon ion-camera"></i>
-              Tomar fotografía
-            </a>
-            <a class="tab-item" ng-click="getColors()">
-              <i class="icon ion-ios-color-filter"></i>
-              Obtener colores
-            </a>
-            
-          </div>
-
-        </div>
-
-      </ion-content>
-    </ion-pane>
-  </body>
+    <body ng-app="starter" style="background-color: #FAFAFA;" >
+        <ion-pane ng-controller="mainController">
+            <ion-content>
+                <div style="background-color: #FAFAFA;">
+                    <div class="fondoImagen">
+                        <h4 class="padding" style="color: white; text-align: center;">Obtén colores predominantes a partir de una imagen.</h4>
+                        <div class="colors">
+                            <div class="color" style="background-color:rgb({{palette[0][0]}},{{palette[0][1]}},{{palette[0][2]}})"></div>
+                            <div class="palette">
+                                <div ng-if="$index > 0" class="color" ng-repeat="c in palette" style="background-color:rgb({{c[0]}},{{c[1]}},{{c[2]}});">
+                                    <div id="etiquetaColor">
+                                    <br>
+                                    <span> </span> RGB ({{c[0]}},{{c[1]}},{{c[2]}})
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div align="center" id="divImagen">
+                        <p class="padding">
+                            <img id="imgDemo" src="img/avatar1.png" align="center">
+                        </p>
+                    </div>
+                </div>
+            </ion-content>
+            <ion-tabs class="tabs-icon-top tabs-color-active-positive" id="tabsOpciones">
+                <!-- Account Tab -->
+                <ion-tab title="Obtener colores" icon-off="icon ion-ios-color-filter-outline" icon-on="icon ion-ios-color-filter" ng-click="getColors()">
+                </ion-tab>
+                <!-- Chats Tab -->
+                <ion-tab title="Tomar fotografía" icon-off="ion-ios-camera-outline" icon-on="ion-ios-camera-outline" ng-click="getCamera()">
+                    <ion-nav-view name="tab-chats"></ion-nav-view>
+                </ion-tab>
+                <!-- Dashboard Tab -->
+                <ion-tab title="Acerca de" icon-off="ion-ios-help-outline" icon-on="ion-ios-help-outline" href="#/app/browse">
+                    <ion-nav-view name="tab-chats"></ion-nav-view>
+                </ion-tab>
+            </ion-tabs>
+        </ion-pane>
+    </body>
 </ion-view>
