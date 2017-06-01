@@ -68,7 +68,7 @@ angular.module('starter', ['ionic','ngCordova'])
         if(results.length){
           image.src = results[0];
         } else {
-          alert("Select an image!");
+          alert("Selecciona una imagen.");
         }
 
       }, function(error) {
@@ -85,7 +85,7 @@ angular.module('starter', ['ionic','ngCordova'])
       var p = colorThief.getPalette(a, 5);
       $scope.palette = p;
     } else {
-      alert("Take a picture first!");
+      alert("Toma una imagen primero.");
     }
   }
 
