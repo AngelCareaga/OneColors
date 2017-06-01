@@ -1,56 +1,67 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('mainController', function ($scope, $cordovaCamera, $cordovaImagePicker){
+  
+  var colorThief = new ColorThief();
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+  $scope.palette = [];
 
-  // Form data for the login modal
-  $scope.loginData = {};
+  document.addEventListener("deviceready", function () {
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+    var options = {
+      quality: 100,
+      destinationType: Camera.DestinationType.DATA_URL,
+      sourceType: Camera.PictureSourceType.CAMERA,
+      allowEdit: true,
+      encodingType: Camera.EncodingType.JPEG,
+      targetWidth: 600,
+      popoverOptions: CameraPopoverOptions,
+      saveToPhotoAlbum: false,
+      correctOrientation:true
+    };
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
+    var optionsPicker = {
+     maximumImagesCount: 10,
+     width: 800,
+     height: 800,
+     quality: 80
+    };
 
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
+    $scope.getCamera = function (){
+      $cordovaCamera.getPicture(options).then(function(imageData) {
+        var image = document.getElementById('imgDemo');
+        image.src = "data:image/jpeg;base64," + imageData;
+      }, function(err) {
+        // error
+      });
+    }
 
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+    $scope.getPicker = function (){
+      $cordovaImagePicker.getPictures(optionsPicker)
+      .then(function (results) {
+        var image = document.getElementById('imgDemo');
+        if(results.length){
+          image.src = results[0];
+        } else {
+          alert("Select an image!");
+        }
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
-})
+      }, function(error) {
+        // error getting photos
+      });
+    }
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
+  }, false);
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+  $scope.getColors = function (){
+    var a = document.getElementById("imgDemo");
+    if(a.src){
+      var c = colorThief.getColor(a);
+      var p = colorThief.getPalette(a, 5);
+      $scope.palette = p;
+    } else {
+      alert("Take a picture first!");
+    }
+  }
+
 });

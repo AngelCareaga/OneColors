@@ -1,5 +1,40 @@
-<ion-view view-title="Search">
-  <ion-content>
-    <h1>Search</h1>
-  </ion-content>
+<ion-view view-title="inicio">
+      <body ng-app="starter">
+    <ion-pane ng-controller="mainController">
+      <ion-content>
+        <h4 class="padding">Simple example get colors by image</h4>
+
+        <div class="colors">
+          <div class="color" style="background-color:rgb({{palette[0][0]}},{{palette[0][1]}},{{palette[0][2]}})"></div>
+          <div class="palette">
+            <div ng-if="$index > 0" class="color" ng-repeat="c in palette" style="background-color:rgb({{c[0]}},{{c[1]}},{{c[2]}})">
+            </div>  
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" ng-click="getCamera()">
+              <i class="icon ion-camera"></i>
+              Take a picture
+            </a>
+            <a class="tab-item" ng-click="getPicker()">
+              <i class="icon ion-image"></i>
+              Select in gallery
+            </a>
+            <a class="tab-item" ng-click="getColors()">
+              <i class="icon ion-android-color-palette"></i>
+              Get colors
+            </a>
+            
+          </div>
+
+          <p class="padding">
+            <img id="imgDemo">
+          </p>
+        </div>
+
+      </ion-content>
+    </ion-pane>
+  </body>
 </ion-view>
