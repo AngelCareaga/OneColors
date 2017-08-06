@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto', sans-serif;	
+    font-family: 'Roboto', sans-serif;
 }
 
 .contenidoPrincipal
@@ -52,6 +52,11 @@ body {
 }
 
 .about.texto{
+	color: #303030;
+	text-align: center;
+}
+
+.about .licencia{
 	color: #303030;
 	text-align: center;
 }
