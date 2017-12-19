@@ -125,7 +125,7 @@ angular.module('starter', ['ionic', 'ngCordova'])
 
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     $stateProvider
         .state('app', {
         url: '/app',
@@ -153,4 +153,5 @@ angular.module('starter', ['ionic', 'ngCordova'])
     });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/search');
+    $ionicConfigProvider.tabs.position('bottom'); // other values: top
 })
