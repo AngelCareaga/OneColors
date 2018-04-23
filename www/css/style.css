@@ -1,105 +1,36 @@
+/**
+ * Se declarán los estilos para el maquetado en HTML, en este caso para toda la aplicación(HOME/ABOUT).
+ * 
+ * Cascading Stylesheets [CSS]
+ *
+ * LICENSE: Este archivo fuente está sujeto a la licencia MIT
+ * que está disponible a través del siguiente URI:
+ * https://github.com/AngelCareaga/OneColors/blob/master/LICENSE
+ *
+ * @category   Cascading Stylesheets
+ * @package    css/
+ * @file       style.css
+ * @author     Ángel Careaga <dev.angelcareaga@gmail.com>
+ * @copyright  2018
+ * @license    MIT
+ * @version    1.0
+ */
+
+
+/*
+##########################################################################
+#																	     #
+#		                   ESTILO GENERAL								 #
+#                                                                        #
+##########################################################################
+*/
+
 body {
     font-family: 'Roboto', sans-serif;
 }
 
-.contenidoPrincipal
-{
-	height: 86%;
-}
-
-.about{
-	background-color: #FAFAFA;
-}
-
-.about .iconoOnecolors
-{
-	width: 25%;/* en porcentaje (el highlight del foro lo trasforma) */
-    height: 25%;
-    position:fixed;
-    z-index: -1;
-	text-align: center;
-
-}
-
-.about .titulo
-{
-	margin-top: -1%;
-    color: #212121;
-	text-align: center;
-}
-
-.about .autor
-{
-    color: #212121;
-	text-align: center;
-}
-
-.about .autorTwitter
-{
-    color: #212121;
-    font-size: 90%;
-	text-align: center;
-}
-
-.about.version{
-	color: red;
-	text-align: center;
-}
-
-.about.nombreVersion{
-	color: red;
-	text-align: left;
-}
-
-.about.texto{
-	color: #303030;
-	text-align: center;
-}
-
-.about .licencia{
-	color: #303030;
-	text-align: center;
-}
-
-.about.parrafo{
-	color: #303030;
-	text-align: center;
-}
-
-/* header */
-.bar.bar-stable {
-    background-color: #2980b9;
-    color: #FFFFFF;
-    border-color: #2980b9;
-}
-.bar.bar-stable .title {
-    background-color: #2980b9;
-    color: #FFFFFF;
-    border-color: #2980b9;
-    font-weight: bold;
-}
-
-#ion-navicon
-{
-	color: #FFFF;
-}
-
-.ion-navicon{
-  color:orange;
-}
-
-.tab-item .tomaFoto
-{
-	text-align: center;
-}
-
-.fondoImagen {
-	border-color: #000;
-    background-color: #2980b9;
-    color: #ffffff;
-    top: -20%;
-    margin-top: -10px;
-    margin-bottom: 0%;
+.contenidoPrincipal {
+    height: 86%;
 }
 
 .padding {
@@ -107,55 +38,133 @@ body {
     padding-bottom: 25px;
 }
 
-#fondoBotones
-{
-	background-color: #FAFAFA;
-	width: 100%;
-	height: 100%;
+/* #### BARRA SUPERIOR #### */
+
+.bar.bar-stable {
+    background-color: #2980b9;
+    color: #FFFFFF;
+    border-color: #2980b9;
 }
 
-.tabs-icon-top .tabs-color-active-positive
-{
-	background-color: red;
+.bar.bar-stable .title {
+    background-color: #2980b9;
+    color: #FFFFFF;
+    border-color: #2980b9;
+    font-weight: bold;
 }
 
-#divImagen
-{
-	text-align: center;
-	align-content: center;
-	align-items: center;
-	margin-top: -6%;
+/*
+##########################################################################
+#																	     #
+#		                   ESTILO PÁGINA HOME							 #
+#                                                                        #
+##########################################################################
+*/
+
+/* #### FONDO IMAGEN #### */
+
+.fondoImagen {
+    border-color: #000;
+    background-color: #2980b9;
+    color: #ffffff;
+    top: -20%;
+    margin-top: -10px;
+    margin-bottom: 0%;
 }
 
-#imgDemo
-{
-	width: 50%;/* en porcentaje (el highlight del foro lo trasforma) */
-    height: 50%;
-    top:0;
-    left:0;
-    position:fixed;
-    z-index: -1;
-	text-align: center;
+#fondoBotones {
+    background-color: #FAFAFA;
+    width: 100%;
+    height: 100%;
 }
 
-.colors
-{
-	width: 150%;
-	height: 150%;
+.tabs-icon-top .tabs-color-active-positive {
+    background-color: red;
 }
 
-#etiquetaColor
-{
-	width: 100%;
-    height: 200%;
-    top:0;
-    left:0;
-    position:fixed;
-    z-index: -1;
-	
+#divImagen {
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    margin-top: -12%;
 }
 
-.estiloTitulo
-{
-	margin-top: -1%;
+#imgDemo {
+    width: 50%;
+    top: 1.3em;
+    position: relative;
+}
+
+.colors {
+    width: 150%;
+    height: 150%;
+}
+
+#etiquetaColor {
+    z-index: -1;
+}
+
+.estiloTitulo {
+    margin-top: -1%;
+}
+
+/*
+##########################################################################
+#																	     #
+#		                   ESTILO PÁGINA ABOUT							 #
+#                                                                        #
+##########################################################################
+*/
+
+.about {
+    background-color: #FAFAFA;
+}
+
+.about .iconoOnecolors {
+    width: 25%;
+    z-index: -1;
+    text-align: center;
+    max-width: 17em;
+}
+
+.about .titulo {
+    margin-top: -1%;
+    color: #212121;
+    text-align: center;
+}
+
+.about .autor {
+    color: #212121;
+    text-align: center;
+}
+
+.autorContacto {
+    color: #212121;
+    font-size: 90%;
+    text-align: center;
+  }
+
+.about.version {
+    color: red;
+    text-align: center;
+}
+
+.about.nombreVersion {
+    color: red;
+    text-align: left;
+}
+
+.about.texto {
+    color: #303030;
+    text-align: center;
+}
+
+.about .licencia {
+    color: #303030;
+    text-align: center;
+}
+
+.about.parrafo {
+    color: #303030;
+    text-align: center;
 }
